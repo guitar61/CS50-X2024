@@ -1,0 +1,52 @@
+#include <cs50.h>
+#include <stdio.h>
+
+int cal_q(int cents);
+int cal_d(int cents);
+int cal_n(int cents);
+int cal_p(int cents);
+int main(void)
+{
+    int cents;
+    do
+    {
+        cents = get_int("Change Owed: ");
+    }
+    while (cents < 0);
+
+    int num_q = cal_q(cents);
+    cents = cents - num_q * 25;
+
+    int num_d = cal_d(cents);
+    cents = cents - num_d * 10;
+
+    int num_n = cal_n(cents);
+    cents = cents - num_n * 5;
+
+    int num_p = cal_p(cents);
+
+    int total_coin = num_q + num_d + num_n + num_p;
+
+    printf("%i\n", total_coin);
+}
+
+int cal_q(int cents)
+{
+    int num_q = cents / 25;
+    return num_q;
+}
+int cal_d(cents)
+{
+    int num_d = cents / 10;
+    return num_d;
+}
+int cal_n(cents)
+{
+    int num_n = cents / 5;
+    return num_n;
+}
+int cal_p(cents)
+{
+    int num_p = cents;
+    return num_p;
+}
